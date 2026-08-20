@@ -36,6 +36,8 @@ This is Agentic Development Lab: a personal Next.js App Router app (TypeScript, 
 
 - There is no test suite yet. When adding non-trivial logic (auth, payments, data writes, API routes), add tests in the same change or ask before shipping without them.
 
+- GitHub Actions runs `npm run lint` and `npm run build` on pull requests and on push to main. Keep CI green. Do not weaken `eslint.config.mjs` to pass Actions.
+
 - Ask before introducing a test runner, E2E tool, or coverage setup. Once present, do not merge behavior changes that leave related tests failing or skipped without saying so.
 
 ## Dependency management

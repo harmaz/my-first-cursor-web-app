@@ -661,7 +661,7 @@ const guides: Guide[] = [
     slug: "product-evolution",
     title: "Evolution of the application",
     summary:
-      "How this site changed: create-next-app starter, then a landing page, then Agentic Development Lab as a docs site, then published workflow and Git guides, then a journal correction, then this remaining-guides batch.",
+      "How this site changed: create-next-app starter, then a landing page, then Agentic Development Lab as a docs site, then published workflow and Git guides, then a journal correction, then the remaining-guides batch, then GitHub Actions CI and a path to public deploy on Vercel.",
     group: "product",
     status: "published",
     sections: [
@@ -712,6 +712,13 @@ const guides: Guide[] = [
         paragraphs: [
           "This increment publishes the remaining planned Setup, Practice, and Product guides, updates the AGENTS.md purpose sentence, and adds a journal entry for the batch. The homepage Guides blurb no longer says most topics are still planned.",
           "The site is still the same app: TypeScript content modules, Server Components, no Markdown platform. What changed is that the map is filled in from verified practice, with omissions where the repo does not support a tutorial.",
+        ],
+      },
+      {
+        heading: "8. CI and deploy",
+        paragraphs: [
+          "GitHub Actions is now the CI for this repository. A workflow runs on pull requests and on push to main. The job uses ubuntu-latest and Node 22, checks out the repo, runs npm ci, then npm run lint and npm run build. It does not deploy, and it does not need secrets.",
+          "Vercel is the intended host. We configure that project in the Vercel dashboard, not by committing tokens or adding the Vercel GitHub app through this repository. Next.js 16 does not require a vercel.json for this app, so we did not add one. A public URL exists only after we connect the GitHub repo in Vercel. We do not invent a production URL here. The repository had no app/robots.ts and no robots metadata, so we are adding noindex now. We did not have existing noindex behavior to leave unchanged.",
         ],
       },
     ],

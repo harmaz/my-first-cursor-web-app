@@ -47,6 +47,33 @@ const entries: JournalEntry[] = [
     ],
   },
   {
+    slug: "ci-and-a-path-to-public-deploy",
+    date: "2026-08-20",
+    title: "GitHub Actions CI and a path to public deploy",
+    summary:
+      "We added GitHub Actions to run lint and build on pull requests and on main, and recorded Vercel as the intended host configured in the dashboard. A public URL exists only after we connect the GitHub repo in Vercel.",
+    paragraphs: [
+      "This increment adds CI and a documented path to public deploy. GitHub Actions is the CI. Vercel is the intended host. Evolution of the application now has a CI and deploy section for that path.",
+      "The repository had no app/robots.ts and no robots metadata, so we are adding noindex now. We did not invent a production URL. We did not describe this increment as committed or uncommitted.",
+    ],
+    sections: [
+      {
+        heading: "GitHub Actions as CI",
+        paragraphs: [
+          "CI is a GitHub Actions workflow that runs on pull requests and on push to main. The job uses ubuntu-latest and Node 22. It checks out the repo, runs npm ci, then npm run lint and npm run build.",
+          "The workflow does not deploy and does not need secrets. Lint and build must stay green. We do not weaken ESLint to pass Actions.",
+        ],
+      },
+      {
+        heading: "Vercel as the intended host",
+        paragraphs: [
+          "Vercel is the intended host. We configure that project in the Vercel dashboard, not by committing tokens.",
+          "A public URL exists only after we connect the GitHub repository in Vercel. Until that connection exists, there is no production URL to record.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "publishing-remaining-setup-and-practice-guides",
     date: "2026-08-20",
     title: "Publishing the remaining Setup and Practice guides",

@@ -21,6 +21,10 @@ export const metadata: Metadata = {
   },
   description:
     "Living documentation of a journey into agentic software development, written in the project we use to practice it.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
