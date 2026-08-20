@@ -8,7 +8,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Project rules
 
-This is a personal Next.js App Router app (TypeScript, React 19, Tailwind CSS v4, npm) that may become a commercial product. Prefer small, reversible changes. Match existing patterns. Do not expand scope.
+This is Agentic Development Lab: a personal Next.js App Router app (TypeScript, React 19, Tailwind CSS v4, npm) that is both living documentation of our agentic development practice and the project we use to practice that process. Prefer small, reversible changes. Match existing patterns. Do not expand scope.
 
 ## Code quality
 

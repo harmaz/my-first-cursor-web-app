@@ -47,7 +47,8 @@ export default function Home() {
           <h2 className="text-xl font-semibold tracking-tight">Guides</h2>
           <p className="mt-3 text-sm leading-7 text-foreground/70">
             Topical reference we fill in after we have actually done the work.
-            Most topics are still planned.
+            The published guides cover setup, workflow, practice, and how the
+            site itself changed.
           </p>
         </article>
       </section>

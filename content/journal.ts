@@ -47,6 +47,47 @@ const entries: JournalEntry[] = [
     ],
   },
   {
+    slug: "publishing-remaining-setup-and-practice-guides",
+    date: "2026-08-20",
+    title: "Publishing the remaining Setup and Practice guides",
+    summary:
+      "We published the remaining planned Setup, Practice, and Product guides as one content batch, updated AGENTS.md to name the docs-and-practice purpose, and recorded what we omitted because it was unverified. Before this increment, local main and origin/main pointed at fdc11b4.",
+    paragraphs: [
+      "This increment published the remaining planned guides on the site. The guides are the reusable pages. This journal entry is the record of the batch.",
+      "We did not retell How We Practice Agentic Software Development or Git and GitHub. We did not add overlapping slugs. We did not describe this increment as committed or uncommitted.",
+    ],
+    sections: [
+      {
+        heading: "Plan and approval",
+        paragraphs: [
+          "We asked for a plan before any files changed. The proposal was to promote the eleven remaining planned slugs, update the AGENTS.md purpose sentence, and add one journal entry. Pages would stay role, verified fact, and omission, not install tutorials.",
+          "We approved a bounded batch: those slugs only, no rewrite of the two published guides, no platform rewrite, and also the homepage sentence that said most topics are still planned. Implementation follows the order AGENTS.md, then content/guides.ts, then content/journal.ts, then that homepage sentence.",
+        ],
+      },
+      {
+        heading: "What we published",
+        paragraphs: [
+          "Setup: windows-ubuntu-vm, ssh-authentication, nodejs-npm-nvm, nextjs-react-typescript-tailwind, cursor-and-cursor-agent, development-environment, and agents-md-and-project-rules. Practice: problems-and-solutions, lessons-learned, and exercises-and-experiments. Product: product-evolution. We also changed the AGENTS.md purpose sentence so it names Agentic Development Lab as docs-and-practice.",
+          "The homepage Guides blurb no longer says most topics are still planned. Guide and journal routes did not need structural changes.",
+        ],
+      },
+      {
+        heading: "What we omitted",
+        paragraphs: [
+          "We omitted hypervisor product, disk size, Ubuntu release, install commands, SSH clone URL, key algorithms, ssh-keygen steps, nvm install recipes, Cursor Cloud UI, model names, and settings tours. Problems and solutions uses only Geist font fetch, journal text that did not match Git, and the Git-guide concatenated-word review.",
+          "We did not invent other incidents. We did not retell the thirteen-step workflow or the Git guide on the AGENTS.md page. We did not add Markdown, a CMS, a database, authentication, search, nested routes, or globals.css dark-mode work.",
+        ],
+      },
+      {
+        heading: "Files changed",
+        paragraphs: [
+          "The files in this increment are AGENTS.md, content/guides.ts, content/journal.ts, and app/page.tsx. Before this increment, local main and origin/main pointed at fdc11b4, Correct journal Git history and record Git guide increment.",
+          "That checkpoint is the baseline. This entry does not describe the current increment as committed or uncommitted.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "publishing-git-and-github-guide",
     date: "2026-08-20",
     title: "Publishing the Git and GitHub setup guide",
