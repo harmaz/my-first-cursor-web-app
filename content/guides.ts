@@ -46,9 +46,75 @@ const guides: Guide[] = [
   {
     slug: "git-and-github",
     title: "Git and GitHub",
-    summary: "Version control, remotes, and the checkpoint habit.",
+    summary:
+      "Git is our safety and checkpoint system in Agentic Development Lab: named, reviewable states we choose to keep, not a save button. We inspect status and diffs, stage only what belongs to the increment, commit with intent, push to GitHub as a separate decision, and verify that local and origin match. This is how we use Git here, not a tutorial for every workflow.",
     group: "setup",
-    status: "planned",
+    status: "published",
+    sections: [
+      {
+        heading: "1. Why Git is our safety and checkpoint system, not just a save button",
+        paragraphs: [
+          "A Git checkpoint is a named, reviewable, recoverable state tied to an increment. We create one when we decide the work is ready to keep, not after every tiny edit. We might plan, implement, and verify several times before we choose to commit.",
+          "That matters because a save button only preserves the latest files. A checkpoint lets us compare, roll back, and recover a known-good state. Git sits at the end of our agent loop for that reason. How We Practice Agentic Software Development explains where inspection, staging, commit, push, and verification fit in that loop. This guide does not retell those steps. It explains the Git practice itself.",
+        ],
+      },
+      {
+        heading: "2. Inspect git status before and after an increment",
+        paragraphs: [
+          "Before we start an increment, we look at git status so we know the baseline: which branch we are on, whether it tracks a remote, and whether the tree is already dirty. After implementation, we look again. In this project today we often use git status -sb, which shows the branch, tracking, and staged, unstaged, and untracked files in a short form. We work on main, which tracks origin/main.",
+          "These are our current commands, not universal laws. The underlying habit is to catch surprise changes and confirm the tree matches the approved increment. Agents can omit files, touch files they were told to leave alone, or leave untracked paths behind. Status is how we notice before anything is staged.",
+        ],
+      },
+      {
+        heading: "3. Read the actual diff, including untracked files",
+        paragraphs: [
+          "After status, we read the actual changes. git diff shows unstaged work. git diff --staged shows what is already in the index. Untracked files do not appear in those diffs, so we also review the untracked paths from status rather than assuming they are unimportant.",
+          "The diff on disk is the source of truth, not the agent's summary of what it did. A summary can miss files, describe edits inaccurately, or skip untracked content. Reading the diff is the same independent-verification habit we use for lint and build reports.",
+        ],
+      },
+      {
+        heading: "4. Stage only the files that belong to the approved increment",
+        paragraphs: [
+          "We stage deliberately, usually with git add on specific paths, so the next commit contains only the approved increment. We do not treat git add . as the default unless the whole working tree is in scope. A documentation increment that only changes content/guides.ts should stage that file, not leftover experiments sitting nearby.",
+          "Staging is the last chance to keep a checkpoint aligned with the plan. Mixing unrelated files, generated output, or leftover edits into the same commit makes history harder to review and harder to undo. The approved boundary is the staging rule, not the entire dirty tree.",
+        ],
+      },
+      {
+        heading: "5. Create a deliberate commit with a message that explains why",
+        paragraphs: [
+          "When we decide the increment is ready, we commit with a message that explains why the change exists. Two examples from this repository are 4278c9a, Create initial landing page, and e1fc733, Create Agentic Development Lab documentation shell. Those messages name the intent, not a file list.",
+          "A why-focused message makes the checkpoint useful later, when we need to understand what we meant to keep. Commits stay optional until we choose to create one. AGENTS.md in this repo tells agents not to commit unless we explicitly ask, which keeps that decision with us.",
+        ],
+      },
+      {
+        heading: "6. Push to the remote as a separate decision from commit",
+        paragraphs: [
+          "A commit is a local checkpoint. A push puts that checkpoint on GitHub. We treat them as separate decisions, even though we often do both together when an increment is ready to share or back up. In this repository the remote is named origin, and main tracks origin/main.",
+          "Pushing protects against local-only loss and makes the work visible on origin. Keeping push separate from commit means we can checkpoint locally before we are ready for the remote, and we do not treat a local commit as already backed up. AGENTS.md also tells agents not to push unless we explicitly ask.",
+        ],
+      },
+      {
+        heading: "7. Verify that local and origin point at the intended checkpoint",
+        paragraphs: [
+          "After pushing, we confirm local and remote state match our expectations. In this project today that often means git status -sb and git branch -vv: the branch should track origin, and both should point at the intended commit. For the landing-page checkpoint we verified that local main and origin/main both pointed at 4278c9a.",
+          "Without this check we might assume a push succeeded when it did not, or continue working on top of state we thought was already saved remotely. The verification closes the loop. These commands are our current practice, not the only valid way to confirm a remote checkpoint.",
+        ],
+      },
+      {
+        heading: "8. What we do not commit",
+        paragraphs: [
+          "We do not commit secrets, credentials, API keys, or .env files. We also do not commit generated artifacts such as .next output or node_modules. AGENTS.md in this repo is the rule set for that list. We also leave out files that are simply outside the approved increment.",
+          "Secrets in Git history are hard to unwind. Generated output bloats the repo and is not the source of truth. Unrelated files blur the checkpoint. The status and diff review in the earlier sections is where we enforce these rules in practice, rather than relying on memory at commit time.",
+        ],
+      },
+      {
+        heading: "9. Local machine versus agent environments",
+        paragraphs: [
+          "On a local machine we often run Git ourselves. In some agent environments the agent may commit or push when the environment instructions require it.",
+          "The same principle holds either way: a checkpoint is a decision, not an autosave. Who types the command can change. Whether the increment is ready to keep does not.",
+        ],
+      },
+    ],
   },
   {
     slug: "ssh-authentication",
